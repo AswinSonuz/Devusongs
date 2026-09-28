@@ -11,21 +11,21 @@ const songs = [
         title: "Apni Karim",
         description: "Gopii Songs",
         audio: "music/song2.mp3",
-        cover: "music/song2.jpg"
+        cover: "music/song2.png"
     },
 
     {
         title: "Meh Agar Kahu",
         description: "Gopii Songs",
         audio: "music/song3.mp3",
-        cover: "music/song3.jpg"
+        cover: "music/song3.png"
     },
 
     {
         title: "Arrari Arriraro",
         description: "Gopii Songs",
         audio: "music/song4.mp3",
-        cover: "music/song4.jpg"
+        cover: "music/song4.png"
     }
 
 ];
