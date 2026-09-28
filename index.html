@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevuSongs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <div class="music-player">
+
+        <div class="song-info">
+
+            <img
+                id="album-cover"
+                src="music/song1.jpg"
+                alt="Album Cover"
+                class="album-cover"
+            >
+
+            <div class="song-details">
+
+                <h3 id="song-title">Song Name</h3>
+
+                <p id="song-description">Artist Name</p>
+
+                <div class="progress-container">
+
+                    <input
+                        type="range"
+                        id="progress"
+                        min="0"
+                        max="100"
+                        value="0"
+                    >
+
+                    <div class="time">
+                        <span id="current-time">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="player-controls">
+
+            <button id="previous" class="control-btn">
+                ⏮
+            </button>
+
+            <button id="play" class="play-btn">
+                 <i data-lucide="play"></i>
+            </button>
+
+            <button id="next" class="control-btn">
+                ⏭
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Music player -->
+    <audio id="audio"></audio>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
