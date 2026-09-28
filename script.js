@@ -81,6 +81,9 @@ const songs = [
 
 
 const audio = document.getElementById("audio");
+audio.preload = "auto";
+audio.playsInline = true;
+audio.volume = 1;
 
 const albumCover = document.getElementById("album-cover");
 const songTitle = document.getElementById("song-title");
@@ -101,6 +104,14 @@ const durationDisplay =
 
 let currentSong = 0;
 
+function unlockAudioPlayback() {
+    if (!audio) return Promise.resolve();
+
+    audio.muted = false;
+    audio.volume = 1;
+
+    return audio.play().catch(() => {});
+}
 
 /* =========================
    FORMAT TIME
@@ -166,7 +177,7 @@ playButton.addEventListener("click", () => {
 
     if (audio.paused) {
 
-        audio.play()
+        unlockAudioPlayback()
             .then(() => {
                 playButton.innerHTML = '<i data-lucide="pause"></i>';
                 lucide.createIcons();
@@ -200,7 +211,7 @@ nextButton.addEventListener("click", () => {
 
     loadSong(currentSong);
 
-    audio.play()
+    unlockAudioPlayback()
         .then(() => {
             playButton.innerHTML = '<i data-lucide="pause"></i>';
             lucide.createIcons();
@@ -226,7 +237,7 @@ previousButton.addEventListener("click", () => {
 
     loadSong(currentSong);
 
-    audio.play()
+    unlockAudioPlayback()
         .then(() => {
             playButton.innerHTML = '<i data-lucide="pause"></i>';
             lucide.createIcons();
@@ -252,7 +263,7 @@ audio.addEventListener("ended", () => {
 
     loadSong(currentSong);
 
-    audio.play()
+    unlockAudioPlayback()
         .then(() => {
             playButton.innerHTML = '<i data-lucide="pause"></i>';
             lucide.createIcons();
