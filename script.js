@@ -29,49 +29,49 @@ const songs = [
     },
 
     {
-        title: "ambili maman",
+        title: "tharattu",
         description: "Gopii Songs",
         audio: "music/song5.mp3",
         cover: "music/song5.png"
     },
 
     {
-        title: "aararo aariraro",
+        title: "koodappirannor",
         description: "Gopii Songs",
         audio: "music/song6.mp3",
         cover: "music/song6.png"
     },
 
     {
-        title: "aararo aariraro",
+        title: "ennod nee irundhal",
         description: "Gopii Songs",
         audio: "music/song7.mp3",
         cover: "music/song7.png"
     },
 
     {
-        title: "aararo aariraro",
+        title: "pesamale",
         description: "Gopii Songs",
         audio: "music/song8.mp3",
         cover: "music/song8.png"
     },
 
     {
-        title: "aararo aariraro",
+        title: "madhu pole",
         description: "Gopii Songs",
         audio: "music/song9.mp3",
         cover: "music/song9.png"
     },
 
     {
-        title: "aararo aariraro",
+        title: "chinna thayaval",
         description: "Gopii Songs",
         audio: "music/song10.mp3",
         cover: "music/song10.png"
     },
 
     {
-        title: "aararo aariraro",
+        title: "meri aashiqui",
         description: "Gopii Songs",
         audio: "music/song11.mp3",
         cover: "music/song11.png"
