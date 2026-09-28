@@ -10,17 +10,19 @@ body {
 
 
 .player-shell {
-    position: absolute;
+    position: fixed;
     left: 50%;
-    top: 90%;
-    transform: translate(-50%, -50%);
+    bottom: 18px;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     gap: 14px;
+    width: min(100% - 20px, 560px);
+    z-index: 10;
 }
 
 .music-player {
-    width: 500px;
+    width: 100%;
     min-height: 115px;
     padding: 14px;
     display: flex;
@@ -258,51 +260,65 @@ body {
 
 @media (max-width: 600px) {
 
+    body {
+        min-height: 100svh;
+    }
+
     .player-shell {
-        width: calc(100% - 30px);
-        gap: 10px;
+        width: calc(100% - 16px);
+        gap: 8px;
+        bottom: 12px;
     }
 
     .music-player {
-
-        width: calc(100% - 62px);
-        min-height: 100px;
-        padding: 12px;
-        gap: 10px;
-
+        min-height: 92px;
+        padding: 10px 10px 10px 8px;
+        gap: 8px;
     }
 
     .album-cover {
-        width: 68px;
-        height: 68px;
+        width: 58px;
+        height: 58px;
     }
 
     .song-info {
-        gap: 11px;
+        gap: 10px;
     }
 
     .song-details h3 {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .song-details p {
-        font-size: 11px;
-
-        margin-bottom: 9px;
+        font-size: 10px;
+        margin-bottom: 8px;
     }
 
     .player-controls {
-        gap: 7px;
+        gap: 6px;
     }
 
     .control-btn {
-        font-size: 14px;
+        width: 24px;
+        height: 30px;
+        font-size: 12px;
     }
 
     .play-btn {
         width: 42px;
         height: 42px;
-        border-radius: 11px;
+        border-radius: 12px;
+    }
+
+    .background-toggle {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+    }
+
+    .background-toggle svg {
+        width: 16px;
+        height: 16px;
     }
 }
 
