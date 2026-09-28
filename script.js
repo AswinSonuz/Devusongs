@@ -271,3 +271,66 @@ progress.addEventListener("input", () => {
 ========================= */
 
 loadSong(currentSong);
+
+const backgroundToggle = document.getElementById("background-toggle");
+const backgroundVideo = document.getElementById("background-video");
+
+function getWindIconMarkup(showCross = false) {
+    const cross = showCross ? `
+        <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    ` : "";
+
+    return `
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M3 9.5h11.2a2.8 2.8 0 1 1-2.8 2.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 14.5h15.4a2.8 2.8 0 1 0-2.8-2.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.4 4.8c1.7.6 2.7 1.8 3 3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M16.7 16.8c1.4.5 2.5 1.3 3.3 2.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            ${cross}
+        </svg>
+    `;
+}
+
+function renderBackgroundToggleIcon(showVideoMode) {
+    backgroundToggle.innerHTML = getWindIconMarkup(!showVideoMode);
+}
+
+function restartBackgroundVideoSmoothly() {
+    if (!backgroundVideo || !backgroundVideo.duration) {
+        return;
+    }
+
+    const loopThreshold = 0.25;
+
+    if (backgroundVideo.currentTime >= backgroundVideo.duration - loopThreshold) {
+        backgroundVideo.currentTime = 0.05;
+    }
+}
+
+backgroundVideo.addEventListener("timeupdate", restartBackgroundVideoSmoothly);
+
+backgroundVideo.addEventListener("ended", () => {
+    backgroundVideo.currentTime = 0;
+    backgroundVideo.play().catch(() => {});
+});
+
+renderBackgroundToggleIcon(backgroundVideo.classList.contains("active"));
+
+backgroundToggle.addEventListener("click", () => {
+
+    if (backgroundVideo.classList.contains("active")) {
+
+        // Switch back to image
+        backgroundVideo.pause();
+        backgroundVideo.classList.remove("active");
+        renderBackgroundToggleIcon(false);
+
+    } else {
+
+        // Switch to video
+        backgroundVideo.currentTime = 0;
+        backgroundVideo.classList.add("active");
+        backgroundVideo.play().catch(() => {});
+        renderBackgroundToggleIcon(true);
+    }
+});
