@@ -1,32 +1,81 @@
 const songs = [
 
     {
-        title: "Kulusugal",
+        title: "antha naalil",
         description: "Gopii Songs",
         audio: "music/song1.mp3",
         cover: "music/song1.png"
     },
 
     {
-        title: "Apni Karim",
+        title: "sun raha hai",
         description: "Gopii Songs",
         audio: "music/song2.mp3",
         cover: "music/song2.png"
     },
 
     {
-        title: "Meh Agar Kahu",
+        title: "mein agar kahoon",
         description: "Gopii Songs",
         audio: "music/song3.mp3",
         cover: "music/song3.png"
     },
 
     {
-        title: "Arrari Arriraro",
+        title: "aararo aariraro",
         description: "Gopii Songs",
         audio: "music/song4.mp3",
         cover: "music/song4.png"
-    }
+    },
+
+    {
+        title: "aararo aariraro",
+        description: "Gopii Songs",
+        audio: "music/song5.mp3",
+        cover: "music/song5.png"
+    },
+
+    {
+        title: "aararo aariraro",
+        description: "Gopii Songs",
+        audio: "music/song6.mp3",
+        cover: "music/song6.png"
+    },
+
+    {
+        title: "aararo aariraro",
+        description: "Gopii Songs",
+        audio: "music/song7.mp3",
+        cover: "music/song7.png"
+    },
+
+    {
+        title: "aararo aariraro",
+        description: "Gopii Songs",
+        audio: "music/song8.mp3",
+        cover: "music/song8.png"
+    },
+
+    {
+        title: "aararo aariraro",
+        description: "Gopii Songs",
+        audio: "music/song9.mp3",
+        cover: "music/song9.png"
+    },
+
+    {
+        title: "aararo aariraro",
+        description: "Gopii Songs",
+        audio: "music/song10.mp3",
+        cover: "music/song10.png"
+    },
+
+    {
+        title: "aararo aariraro",
+        description: "Gopii Songs",
+        audio: "music/song11.mp3",
+        cover: "music/song11.png"
+    },
 
 ];
 
