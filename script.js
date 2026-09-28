@@ -103,6 +103,7 @@ const durationDisplay =
 
 
 let currentSong = 0;
+let audioUnlocked = false;
 
 function unlockAudioPlayback() {
     if (!audio) return Promise.resolve();
@@ -110,8 +111,30 @@ function unlockAudioPlayback() {
     audio.muted = false;
     audio.volume = 1;
 
-    return audio.play().catch(() => {});
+    return audio.play()
+        .then(() => {
+            audioUnlocked = true;
+        })
+        .catch(() => {
+            audioUnlocked = false;
+            return Promise.resolve();
+        });
 }
+
+function ensureAudioUnlocked() {
+    if (audioUnlocked) return Promise.resolve();
+    return unlockAudioPlayback();
+}
+
+['touchstart', 'touchend', 'pointerdown', 'click'].forEach((eventName) => {
+    document.addEventListener(eventName, () => {
+        if (!audioUnlocked) {
+            audio.muted = false;
+            audio.volume = 1;
+            audio.play().catch(() => {});
+        }
+    }, { passive: true, once: true });
+});
 
 /* =========================
    FORMAT TIME
@@ -177,7 +200,10 @@ playButton.addEventListener("click", () => {
 
     if (audio.paused) {
 
-        unlockAudioPlayback()
+        ensureAudioUnlocked()
+            .then(() => {
+                return audio.play();
+            })
             .then(() => {
                 playButton.innerHTML = '<i data-lucide="pause"></i>';
                 lucide.createIcons();
@@ -211,7 +237,10 @@ nextButton.addEventListener("click", () => {
 
     loadSong(currentSong);
 
-    unlockAudioPlayback()
+    ensureAudioUnlocked()
+        .then(() => {
+            return audio.play();
+        })
         .then(() => {
             playButton.innerHTML = '<i data-lucide="pause"></i>';
             lucide.createIcons();
@@ -237,7 +266,10 @@ previousButton.addEventListener("click", () => {
 
     loadSong(currentSong);
 
-    unlockAudioPlayback()
+    ensureAudioUnlocked()
+        .then(() => {
+            return audio.play();
+        })
         .then(() => {
             playButton.innerHTML = '<i data-lucide="pause"></i>';
             lucide.createIcons();
@@ -263,7 +295,10 @@ audio.addEventListener("ended", () => {
 
     loadSong(currentSong);
 
-    unlockAudioPlayback()
+    ensureAudioUnlocked()
+        .then(() => {
+            return audio.play();
+        })
         .then(() => {
             playButton.innerHTML = '<i data-lucide="pause"></i>';
             lucide.createIcons();
