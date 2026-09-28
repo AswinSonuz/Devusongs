@@ -11,29 +11,42 @@ body {
 
 .music-player {
     position: absolute;
+
     left: 50%;
     top: 90%;
+
     transform: translate(-50%, -50%);
+
     width: 500px;
     min-height: 115px;
+
     padding: 14px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    border-radius: 12px;
+
+    /* Squircle-style corners */
+    border-radius: 24px;
+
     /* Glass effect */
     background: linear-gradient(
         135deg,
         rgba(135, 131, 123, 0.82),
         rgba(104, 120, 110, 0.72)
     );
-    border: 1px solid rgba(89, 79, 79, 0.22);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+
     box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.18);
+        0 10px 35px rgba(0, 0, 0, 0.22);
+
     color: white;
+
     box-sizing: border-box;
 }
 
@@ -189,18 +202,13 @@ body {
 .play-btn {
     width: 60px;
     height: 60px;
-
     border: none;
     background: white;
-
-    border-radius: 14px;
-
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: pointer;
-
     transition: transform 0.2s ease;
 }
 
